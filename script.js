@@ -4,12 +4,12 @@ document.querySelectorAll(".photo img").forEach(image => {
         const popup = document.createElement("div");
         popup.classList.add("popup");
 
-        popup.innerHTML = 
+        popup.innerHTML = `
             <div class="popup-content">
                 <img src="${image.src}" alt="Romantic Memory">
                 <span class="close">&times;</span>
             </div>
-        ;
+        `;
 
         document.body.appendChild(popup);
 
