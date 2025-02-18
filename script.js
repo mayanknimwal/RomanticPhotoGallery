@@ -36,6 +36,20 @@ function closePopup(popup) {
     setTimeout(() => popup.remove(), 500);
 }
 
+// Slideshow Effect
+document.addEventListener("DOMContentLoaded", function () {
+    let slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    function showNextSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+    }
+
+    setInterval(showNextSlide, 3000); // Change every 3 seconds
+});
+
 // Floating Hearts Effect
 function createHeart() {
     const heart = document.createElement("div");
