@@ -4,12 +4,12 @@ document.querySelectorAll(".photo img").forEach(image => {
         const popup = document.createElement("div");
         popup.classList.add("popup");
 
-        popup.innerHTML = `
+        popup.innerHTML = 
             <div class="popup-content">
                 <img src="${image.src}" alt="Romantic Memory">
                 <span class="close">&times;</span>
             </div>
-        `;
+        ;
 
         document.body.appendChild(popup);
 
@@ -35,20 +35,6 @@ function closePopup(popup) {
     popup.classList.add("fade-out");
     setTimeout(() => popup.remove(), 500);
 }
-
-// Slideshow Effect
-document.addEventListener("DOMContentLoaded", function () {
-    let slides = document.querySelectorAll(".slide");
-    let index = 0;
-
-    function showNextSlide() {
-        slides[index].classList.remove("active");
-        index = (index + 1) % slides.length;
-        slides[index].classList.add("active");
-    }
-
-    setInterval(showNextSlide, 3000); // Change every 3 seconds
-});
 
 // Floating Hearts Effect
 function createHeart() {
