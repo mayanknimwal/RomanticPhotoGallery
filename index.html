@@ -1,260 +1,49 @@
-/* General styling */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #ffe6f2;
-    color: #ff4081;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>💖 Our Beautiful Memories 💖</h1>
+    
+    <div class="gallery">
+        <div class="photo"><img src="images/photo1.jpg" alt="Romantic Moment"></div>
+        <div class="photo"><img src="images/photo2.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo3.jpg" alt="Date Night"></div>
+        <div class="photo"><img src="images/photo4.jpg" alt="Holding Hands"></div>
+        <div class="photo"><img src="images/photo5.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo6.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo7.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo8.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo9.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo10.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo11.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo12.jpg" alt="Couple Hug"></div>
+        <div class="photo"><img src="images/photo13.jpg" alt="Couple Hug"></div>
+    </div>
 
-/* Title styling with heartbeat animation */
-h1 {
-    margin: 20px 0;
-    font-size: 28px;
-    animation: fadeIn 1.5s ease-in-out, heartbeat 1.5s infinite alternate;
-}
+    <!-- Floating Hearts -->
+    <div id="hearts-container"></div>
 
-/* Heartbeat animation */
-@keyframes heartbeat {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.05);
-    }
-}
+    <!-- Falling Stars -->
+    <div id="stars-container"></div>
 
-/* Grid layout for gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
-    gap: 15px;
-    max-width: 90%;
-    margin: auto;
-}
+    <!-- Love Quote -->
+    <p class="love-quote">"Tujhe kya lgra ye hum karre hai nahi ye sab likha hua hau." 💕</p>
 
-/* Photo styling with fade-in effect */
-.photo {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s forwards;
-}
+    <!-- Background Music (Corrected Path) -->
+   <audio id="bg-music" loop>
+    <source src="music/perfect.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* Smooth zoom and glow effect on hover */
-.photo img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease-in-out, box-shadow 0.3s;
-}
+    <!-- Music Control Button -->
+    <button id="music-btn">🎵 Pause Music</button>
 
-.photo img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 64, 129, 0.7); /* Soft pink glow */
-}
-
-/* Lightbox pop-up styling */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-/* Smooth fade-out effect for pop-up */
-.popup.fade-out {
-    animation: fadeOut 0.5s forwards;
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-/* Lightbox zoom-in effect */
-.popup-content {
-    position: relative;
-    max-width: 80%;
-    max-height: 80%;
-    animation: scaleUp 0.5s ease-in-out;
-}
-
-/* Lightbox zoom animation */
-@keyframes scaleUp {
-    from {
-        transform: scale(0.5);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-/* Lightbox image styling */
-.popup img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Close button for lightbox */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-/* Floating hearts container */
-#hearts-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-/* Floating hearts */
-.heart {
-    position: absolute;
-    bottom: 0;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    clip-path: polygon(
-        50% 0%, 
-        100% 35%, 
-        82% 100%, 
-        50% 85%, 
-        18% 100%, 
-        0% 35%
-    );
-    animation: floatUp 5s linear infinite;
-    opacity: 0.7;
-}
-
-/* Floating hearts animation with rotation */
-@keyframes floatUp {
-    0% {
-        transform: translateY(0) scale(1) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) scale(1.5) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* Falling stars container */
-#stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-/* Falling stars */
-.star {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-    animation: fall 5s linear infinite;
-}
-
-/* Falling stars animation */
-@keyframes fall {
-    0% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-    }
-}
-
-/* Love quote */
-.love-quote {
-    font-size: 18px;
-    font-style: italic;
-    margin-top: 20px;
-    color: #ff4081;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Music button (optimized for mobile) */
-#music-btn {
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    width: 90%;
-    max-width: 300px;
-    margin: 10px auto;
-    display: block;
-}
-
-#music-btn:hover {
-    background-color: #d81b60;
-}
-
-/* 🌟 Mobile Optimizations */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 22px; /* Reduce title size */
-    }
-
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller images on mobile */
-        gap: 8px; /* Reduce spacing */
-    }
-
-    #music-btn {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    /* Optimize floating hearts on mobile */
-    .heart {
-        animation-duration: 4s !important; /* Faster animation */
-    }
-}
+    <script src="script.js"></script>
+</body>
+</html>
