@@ -64,6 +64,27 @@
     <!-- Music Control Button -->
     <button id="music-btn">🎵 Pause Music</button>
 
+    <script>
+        // Save and Load Notes from Local Storage
+        document.addEventListener("DOMContentLoaded", function () {
+            const noteTextarea = document.getElementById("love-note");
+            const savedNote = document.getElementById("saved-note");
+            
+            // Load saved note
+            const storedNote = localStorage.getItem("loveNote");
+            if (storedNote) {
+                noteTextarea.value = storedNote;
+                savedNote.textContent = storedNote;
+            }
+
+            window.saveNote = function () {
+                const noteText = noteTextarea.value;
+                localStorage.setItem("loveNote", noteText);
+                savedNote.textContent = noteText;
+            };
+        });
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
