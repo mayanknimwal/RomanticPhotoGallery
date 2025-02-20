@@ -112,3 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     animateCounter();
 });
+
+// ✅ Fix: Gift Button Click
+function openGift() {
+    var message = document.getElementById("gift-message");
+    if (message.style.display === "none" || message.style.display === "") {
+        message.style.display = "block";
+    } else {
+        message.style.display = "none";
+    }
+}
