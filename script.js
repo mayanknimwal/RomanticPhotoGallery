@@ -1,36 +1,21 @@
 // Lightbox Pop-up Effect
-document.querySelectorAll(".photo img").forEach(image => {
+const photos = document.querySelectorAll(".photo img");
+photos.forEach(image => {
     image.addEventListener("click", () => {
         const popup = document.createElement("div");
         popup.classList.add("popup");
-
         popup.innerHTML = `
             <div class="popup-content">
                 <img src="${image.src}" alt="Romantic Memory">
                 <span class="close">&times;</span>
             </div>
         `;
-
         document.body.appendChild(popup);
-
-        // Fade-in effect
-        setTimeout(() => {
-            popup.style.opacity = "1";
-        }, 50);
-
-        // Close popup when clicking on the close button
+        setTimeout(() => popup.style.opacity = "1", 50);
         popup.querySelector(".close").addEventListener("click", () => closePopup(popup));
-
-        // Close popup when clicking outside the image
-        popup.addEventListener("click", (e) => {
-            if (e.target === popup) {
-                closePopup(popup);
-            }
-        });
+        popup.addEventListener("click", (e) => { if (e.target === popup) closePopup(popup); });
     });
 });
-
-// Function to close the popup smoothly
 function closePopup(popup) {
     popup.classList.add("fade-out");
     setTimeout(() => popup.remove(), 500);
@@ -40,17 +25,10 @@ function closePopup(popup) {
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
-
-    // Random position and size
-    heart.style.left = Math.random() * 100 + "vw"; 
-    heart.style.animationDuration = Math.random() * 3 + 3 + "s"; 
-
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
     document.getElementById("hearts-container").appendChild(heart);
-
-    // Remove heart after animation ends
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
+    setTimeout(() => heart.remove(), 6000);
 }
 setInterval(createHeart, 700);
 
@@ -58,45 +36,35 @@ setInterval(createHeart, 700);
 function createStar() {
     const star = document.createElement("div");
     star.classList.add("star");
-
-    // Random position and size
     star.style.left = Math.random() * 100 + "vw";
     star.style.animationDuration = Math.random() * 2 + 3 + "s";
-
     document.getElementById("stars-container").appendChild(star);
-
-    // Remove after animation ends
-    setTimeout(() => {
-        star.remove();
-    }, 5000);
+    setTimeout(() => star.remove(), 5000);
 }
 setInterval(createStar, 1000);
 
 // Background Music Control with Smooth Fade-in
 const music = document.getElementById("bg-music");
 const musicBtn = document.getElementById("music-btn");
-
-music.volume = 0; // Start with zero volume for fade-in effect
+music.volume = 0;
 
 musicBtn.addEventListener("click", () => {
     if (music.paused) {
-        fadeInMusic(music, 1000); // Smooth fade-in over 1 second
+        fadeInMusic(music, 1000);
         musicBtn.textContent = "🎵 Pause Music";
     } else {
-        fadeOutMusic(music, 1000); // Smooth fade-out over 1 second
+        fadeOutMusic(music, 1000);
         musicBtn.textContent = "🎵 Play Music";
     }
 });
 
-// Play music only after user interacts (for mobile support)
 document.addEventListener("click", () => {
     if (music.paused) {
         fadeInMusic(music, 1000);
         musicBtn.textContent = "🎵 Pause Music";
     }
-}, { once: true }); // Runs only once after first click
+}, { once: true });
 
-// Function for smooth fade-in
 function fadeInMusic(audio, duration) {
     let volume = 0;
     audio.volume = volume;
@@ -111,7 +79,6 @@ function fadeInMusic(audio, duration) {
     }, duration / 20);
 }
 
-// Function for smooth fade-out
 function fadeOutMusic(audio, duration) {
     let volume = audio.volume;
     let fadeInterval = setInterval(() => {
@@ -124,3 +91,24 @@ function fadeOutMusic(audio, duration) {
         }
     }, duration / 20);
 }
+
+// Love Counter Script
+document.addEventListener("DOMContentLoaded", function () {
+    const startDate = new Date("2024-07-29");
+    const today = new Date();
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+    const daysTogether = Math.max(Math.floor((today - startDate) / (1000 * 60 * 60 * 24)), 0);
+    const counterElement = document.getElementById("counter");
+    let counter = 0;
+    function animateCounter() {
+        if (counter < daysTogether) {
+            counter++;
+            counterElement.textContent = counter;
+            setTimeout(animateCounter, 20);
+        } else {
+            counterElement.textContent = daysTogether;
+        }
+    }
+    animateCounter();
+});
