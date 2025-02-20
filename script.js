@@ -122,3 +122,17 @@ function openGift() {
         message.style.display = "none";
     }
 }
+
+// ✅ **Love Notes Save System**
+document.addEventListener("DOMContentLoaded", function () {
+    let savedNote = localStorage.getItem("loveNote");
+    if (savedNote) {
+        document.getElementById("saved-note").textContent = savedNote;
+    }
+});
+
+function saveNote() {
+    let noteText = document.getElementById("love-note").value;
+    localStorage.setItem("loveNote", noteText);
+    document.getElementById("saved-note").textContent = noteText;
+}
