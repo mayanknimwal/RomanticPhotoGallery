@@ -4,7 +4,7 @@ body {
     text-align: center;
     background-color: #ffe6f2;
     color: #ff4081;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -29,7 +29,7 @@ h1 {
 /* Grid layout for gallery */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
     max-width: 90%;
     margin: auto;
@@ -65,7 +65,7 @@ h1 {
 
 .photo img:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 64, 129, 0.7); /* Soft pink glow */
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.7);
 }
 
 /* Lightbox pop-up styling */
@@ -83,7 +83,6 @@ h1 {
     animation: fadeIn 0.5s forwards;
 }
 
-/* Smooth fade-out effect for pop-up */
 .popup.fade-out {
     animation: fadeOut 0.5s forwards;
 }
@@ -105,7 +104,6 @@ h1 {
     animation: scaleUp 0.5s ease-in-out;
 }
 
-/* Lightbox zoom animation */
 @keyframes scaleUp {
     from {
         transform: scale(0.5);
@@ -115,14 +113,12 @@ h1 {
     }
 }
 
-/* Lightbox image styling */
 .popup img {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-/* Close button for lightbox */
 .close {
     position: absolute;
     top: 10px;
@@ -143,7 +139,6 @@ h1 {
     overflow: hidden;
 }
 
-/* Floating hearts */
 .heart {
     position: absolute;
     bottom: 0;
@@ -162,7 +157,6 @@ h1 {
     opacity: 0.7;
 }
 
-/* Floating hearts animation with rotation */
 @keyframes floatUp {
     0% {
         transform: translateY(0) scale(1) rotate(0deg);
@@ -185,7 +179,6 @@ h1 {
     overflow: hidden;
 }
 
-/* Falling stars */
 .star {
     position: absolute;
     width: 5px;
@@ -196,7 +189,6 @@ h1 {
     animation: fall 5s linear infinite;
 }
 
-/* Falling stars animation */
 @keyframes fall {
     0% {
         transform: translateY(-10vh) scale(1);
@@ -217,7 +209,7 @@ h1 {
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Music button (optimized for mobile) */
+/* Music button */
 #music-btn {
     background-color: #ff4081;
     color: white;
@@ -237,24 +229,16 @@ h1 {
     background-color: #d81b60;
 }
 
-/* 🌟 Mobile Optimizations */
 @media (max-width: 768px) {
     h1 {
-        font-size: 22px; /* Reduce title size */
+        font-size: 22px;
     }
-
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller images on mobile */
-        gap: 8px; /* Reduce spacing */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 8px;
     }
-
     #music-btn {
         font-size: 14px;
         padding: 10px;
-    }
-
-    /* Optimize floating hearts on mobile */
-    .heart {
-        animation-duration: 4s !important; /* Faster animation */
     }
 }
