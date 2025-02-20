@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
         daysTogether = 0; 
     }
 
-    let counter = 0;
     const counterElement = document.getElementById("counter");
+    let counter = 0;
 
     function animateCounter() {
         if (counter < daysTogether) {
