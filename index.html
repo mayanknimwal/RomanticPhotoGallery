@@ -25,6 +25,39 @@
         <div class="photo"><img src="images/photo13.jpg" alt="Couple Hug"></div>
     </div>
 
+    <!-- Love Counter Section -->
+    <div class="love-counter">
+        <h2>💖 We've been together for</h2>
+        <div id="counter" class="counter">0</div>
+        <p>days of love and happiness! 💕</p>
+    </div>
+
+    <!-- Handwritten Love Notes -->
+    <div class="love-note-section">
+        <h2>💌 Write a Love Note</h2>
+        <textarea id="love-note" placeholder="Write something sweet..."></textarea>
+        <button onclick="saveNote()">❤️ Save Note</button>
+        <p id="saved-note"></p>
+    </div>
+
+    <!-- Heart Shaped Photo Gallery -->
+    <div class="heart-gallery">
+        <img src="images/photo1.jpg" alt="Memory 1">
+        <img src="images/photo2.jpg" alt="Memory 2">
+        <img src="images/photo3.jpg" alt="Memory 3">
+        <img src="images/photo4.jpg" alt="Memory 4">
+        <img src="images/photo5.jpg" alt="Memory 5">
+        <img src="images/photo6.jpg" alt="Memory 6">
+        <img src="images/photo7.jpg" alt="Memory 7">
+        <img src="images/photo8.jpg" alt="Memory 8">
+    </div>
+
+    <!-- Surprise Gift Box -->
+    <div class="gift-box">
+        <button onclick="openGift()">🎁 Open Gift</button>
+        <p id="gift-message" style="display:none;">Awww! You are the best thing that ever happened to me! 💕</p>
+    </div>
+
     <!-- Floating Hearts -->
     <div id="hearts-container"></div>
 
@@ -40,7 +73,6 @@
         Your browser does not support the audio element.
     </audio>
     
-
     <!-- Music Control Button -->
     <button id="music-btn">🎵 Pause Music</button>
 
