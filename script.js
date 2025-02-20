@@ -124,3 +124,33 @@ function fadeOutMusic(audio, duration) {
         }
     }, duration / 20);
 }
+
+// Love Counter Script
+document.addEventListener("DOMContentLoaded", function () {
+    const startDate = new Date("2024-07-29"); // Your anniversary date
+    const today = new Date();
+
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const timeDifference = today.getTime() - startDate.getTime();
+    let daysTogether = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    if (daysTogether < 0) {
+        daysTogether = 0; 
+    }
+
+    let counter = 0;
+    const counterElement = document.getElementById("counter");
+
+    function animateCounter() {
+        if (counter < daysTogether) {
+            counter++;
+            counterElement.textContent = counter;
+            setTimeout(animateCounter, 20);
+        } else {
+            counterElement.textContent = daysTogether;
+        }
+    }
+    animateCounter();
+});
