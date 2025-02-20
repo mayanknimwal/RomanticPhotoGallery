@@ -25,6 +25,13 @@
         <div class="photo"><img src="images/photo13.jpg" alt="Couple Hug"></div>
     </div>
 
+    <!-- Love Counter Section -->
+    <div class="love-counter">
+        <h2>💖 We've been together for</h2>
+        <div id="counter" class="counter">0</div>
+        <p>days of love and happiness! 💕</p>
+    </div>
+
     <!-- Floating Hearts -->
     <div id="hearts-container"></div>
 
@@ -40,10 +47,56 @@
         Your browser does not support the audio element.
     </audio>
     
-
     <!-- Music Control Button -->
     <button id="music-btn">🎵 Pause Music</button>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const startDate = new Date("2023-02-14"); // Change to your anniversary date
+            const today = new Date();
+            const timeDifference = today - startDate;
+            const daysTogether = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            
+            let counter = 0;
+            const counterElement = document.getElementById("counter");
+            
+            function animateCounter() {
+                if (counter < daysTogether) {
+                    counter++;
+                    counterElement.textContent = counter;
+                    setTimeout(animateCounter, 20); // Adjust speed
+                }
+            }
+            animateCounter();
+        });
+    </script>
+
+    <style>
+        .love-counter {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .counter {
+            font-size: 50px;
+            font-weight: bold;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
 </body>
 </html>
